@@ -1,1 +1,1741 @@
+/* =========================
+   تنظیمات کلی
+========================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #182b49 0%,
+            #0b1729 35%,
+            #030711 75%
+        );
+
+    color: #ffffff;
+
+    font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   ستاره‌های آسمان
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.9) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.7) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1.5px,
+            transparent 2px
+        );
+
+    background-size:
+        90px 90px,
+        140px 140px,
+        220px 220px;
+
+    background-position:
+        10px 20px,
+        50px 80px,
+        120px 30px;
+
+    opacity: 0.6;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   نور ملایم آسمان
+========================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #244d78;
+
+    filter: blur(150px);
+
+    opacity: 0.18;
+
+    top: -280px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   صفحه اول
+========================= */
+
+.welcome {
+    position: relative;
+    z-index: 5;
+
+    width: min(88%, 560px);
+
+    padding: 60px 45px;
+
+    text-align: center;
+
+    background: rgba(15, 28, 48, 0.58);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+
+/* ماه صفحه اول */
+
+.moon {
+    font-size: 85px;
+
+    color: #f7f9ff;
+
+    margin-bottom: 18px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 30px rgba(180,210,255,0.55);
+
+    animation: moonFloat 4s ease-in-out infinite;
+}
+
+
+/* عنوان صفحه اول */
+
+.welcome h1 {
+    font-size: 38px;
+
+    font-weight: 400;
+
+    margin-bottom: 22px;
+}
+
+
+/* متن صفحه اول */
+
+.welcome p {
+    color: #c9d5e5;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   دکمه صفحه اول
+========================= */
+
+button,
+.memory-button {
+    display: inline-block;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 16px;
+
+    padding: 14px 32px;
+
+    background: rgba(255,255,255,0.09);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+
+button:hover,
+.memory-button:hover {
+    background: rgba(255,255,255,0.16);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 25px rgba(130,170,220,0.18);
+}
+
+
+/* =========================
+   حرکت ماه
+========================= */
+
+@keyframes moonFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   صفحه دوم — خاطرات
+========================= */
+
+.memories-page {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(90%, 700px);
+
+    min-height: 100vh;
+
+    padding: 65px 25px;
+
+    text-align: center;
+}
+
+
+/* ماه کوچک */
+
+.small-moon {
+    font-size: 55px;
+
+    color: #f7f9ff;
+
+    margin-bottom: 15px;
+
+    line-height: 1;text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 25px rgba(180,210,255,0.55);
+
+    animation: moonFloat 4s ease-in-out infinite;
+}
+
+
+/* عنوان */
+
+.memories-page h1 {
+    font-size: 38px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+
+/* متن معرفی */
+
+.memories-page .intro {
+    color: #c9d5e5;
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    margin-bottom: 45px;
+}
+
+
+/* =========================
+   کارت خاطره
+========================= */
+
+.memory-card {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto 30px;
+
+    padding: 30px;
+
+    text-align: right;
+
+    background: rgba(15,28,48,0.58);
+
+    border: 1px solid rgba(255,255,255,0.16);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.07);
+
+    transition: 0.3s ease;
+
+    cursor: pointer;
+}
+
+
+.memory-card:hover {
+    transform: translateY(-4px);
+
+    background: rgba(25,43,70,0.68);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,0.4);
+}
+
+
+/* شماره */
+
+.memory-number {
+    display: block;
+
+    color: #9fb7d3;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+/* عنوان کارت */
+
+.memory-card h2 {
+    color: #ffffff;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+
+/* متن کارت */
+
+.memory-card p {
+    color: #c9d5e5;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+    margin: 0;
+}
+
+
+/* متن باز کردن */
+
+.read-more {
+    display: block;
+
+    margin-top: 18px;
+
+    color: #9fb7d3;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   Timeline
+========================= */
+
+.timeline {
+    position: relative;
+
+    width: 100%;
+
+    padding: 10px 0;
+}
+
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    right: 50%;
+
+    width: 2px;
+
+    background: rgba(255,255,255,0.18);
+
+    transform: translateX(50%);
+}
+
+
+.timeline-item {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 45px;
+
+    display: flex;
+
+    justify-content: flex-start;
+}
+
+
+.timeline-dot {
+    position: absolute;
+
+    top: 30px;
+
+    right: 50%;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #dce9f7;
+
+    transform: translateX(50%);
+
+    box-shadow:
+        0 0 10px rgba(220,233,247,0.8),
+        0 0 25px rgba(180,210,255,0.4);
+
+    z-index: 3;
+}
+
+
+.timeline-item .memory-card {
+    width: calc(50% - 35px);
+
+    margin: 0;
+}
+
+
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+
+/* =========================
+   پس‌زمینه کارت‌پستال
+========================= */
+
+.postcard-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(55,85,120,0.25),
+            transparent 55%
+        ),
+        rgba(1,6,15,0.80);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.35s ease;
+}
+
+
+.postcard-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================
+   خود کارت پستال
+========================= */
+
+.postcard {
+    position: relative;
+
+    width: min(90%, 570px);
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 55px 45px;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,0.9),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(190,200,215,0.3),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #f6f1e7,
+            #e8e1d4
+        );
+
+    color: #26364a;
+
+    border: 1px solid rgba(90,105,120,0.28);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.6),
+        0 0 0 8px rgba(246,241,231,0.04);transform: translateY(30px) scale(0.95);
+
+    transition: 0.35s ease;
+}
+
+
+/* حاشیه داخلی کارت */
+
+.postcard::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(90,105,120,0.18);
+
+    border-radius: 4px;
+
+    pointer-events: none;
+}
+
+
+/* انیمیشن باز شدن */
+
+.postcard-overlay.show .postcard {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================
+   شماره کارت پستال
+========================= */
+
+.postcard-number {
+    display: block;
+
+    color: #71849b;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+
+/* عنوان کارت پستال */
+
+.postcard h2 {
+    font-size: 29px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+
+    color: #26364a;
+}
+
+
+/* خط تزئینی */
+
+.postcard-line {
+    width: 55px;
+
+    height: 1px;
+
+    background: #71849b;
+
+    margin-bottom: 25px;
+
+    opacity: 0.6;
+}
+
+
+/* متن کارت پستال */
+
+.postcard p {
+    color: #33465d;
+
+    font-size: 16px;
+
+    line-height: 2.2;
+
+    margin: 0;
+
+    text-align: right;
+}
+
+
+/* =========================
+   مهر قلب
+========================= */
+
+.postcard-stamp {
+    position: absolute;
+
+    left: 35px;
+
+    top: 30px;
+
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid rgba(80,100,125,0.35);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #71849b;
+
+    font-size: 23px;
+
+    transform: rotate(-12deg);
+}
+
+
+/* =========================
+   دکمه بستن
+========================= */
+
+.close-postcard {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 35px;
+    height: 35px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #53677f;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    z-index: 5;
+}
+
+
+.close-postcard:hover {
+    background: transparent;
+
+    color: #17263a;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================
+   موبایل
+========================= */
+
+@media (max-width: 600px) {
+
+    .welcome {
+        width: 90%;
+
+        padding: 45px 25px;
+    }
+
+
+    .moon {
+        font-size: 70px;
+    }
+
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+
+    button,
+    .memory-button {
+        padding: 13px 27px;
+    }
+
+
+    .memories-page {
+        width: 92%;
+
+        padding: 45px 10px;
+    }
+
+
+    .small-moon {
+        font-size: 45px;
+    }
+
+
+    .memories-page h1 {
+        font-size: 30px;
+    }
+
+
+    .memories-page .intro {
+        font-size: 15px;
+    }
+
+
+    /* Timeline موبایل */
+
+    .timeline {
+        padding-right: 25px;
+    }
+
+
+    .timeline::before {
+        right: 10px;
+
+        transform: none;
+    }
+
+
+    .timeline-dot {
+        right: 10px;
+
+        transform: translateX(50%);
+    }
+
+
+    .timeline-item {
+        justify-content: flex-start !important;
+
+        padding-right: 20px;
+    }
+
+
+    .timeline-item .memory-card {
+        width: 100%;
+    }
+
+
+    .memory-card {
+        padding: 23px 20px;
+    }
+
+
+    .memory-card h2 {
+        font-size: 20px;
+    }
+
+
+    .memory-card p {
+        font-size: 15px;
+    }
+
+
+    /* کارت پستال موبایل */
+
+    .postcard {
+        width: 94%;
+
+        padding: 48px 25px 30px;
+    }
+
+
+    .postcard h2 {
+        font-size: 24px;
+    }
+
+
+    .postcard p {
+        font-size: 15px;
+
+        line-height: 2;
+    }
+
+
+    .postcard-stamp {
+        left: 22px;
+
+        top: 25px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 19px;
+    }
+
+}
+.postcard {
+    position: relative;
+
+    width: min(90%, 570px);
+    max-height: 85vh;
+    overflow-y: auto;
+
+    padding: 55px 45px;
+
+    background: #f3eadb !important;
+
+    color: #26364a !important;
+
+    border: 1px solid #c8b99f;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.65),
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(30px) scale(0.95);
+
+    transition: 0.35s ease;
+}
+
+
+/* حاشیه داخلی کارت */
+
+.postcard::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(90, 80, 65, 0.25);
+
+    pointer-events: none;
+}
+
+
+/* عنوان */
+
+.postcard h2 {
+    color: #26364a !important;
+
+    font-size: 29px;
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+
+/* متن */
+
+.postcard p {
+    color: #33465d !important;
+
+    font-size: 16px;
+    line-height: 2.2;
+
+    text-align: right;
+}
+
+
+/* شماره */
+
+.postcard-number {
+    color: #7c8794 !important;
+}
+
+
+/* مهر قلب */
+
+.postcard-stamp {
+    position: absolute;
+
+    left: 35px;
+    top: 30px;
+
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid #9b8d78;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #7b6b59;
+
+    font-size: 23px;
+
+    transform: rotate(-12deg);
+}
+
+
+/* خط */
+
+.postcard-line {
+    width: 55px;
+    height: 1px;
+
+    background: #8d806d;
+
+    margin-bottom: 25px;
+}
+
+
+/* دکمه بستن */
+
+.close-postcard {
+    color: #596777 !important;
+}
+/* =========================
+   زیبایی بیشتر کارت‌های خاطره
+========================= */
+
+.memory-card {
+    overflow: hidden;
+    border: 1px solid rgba(180, 205, 230, 0.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 52, 80, 0.72),
+            rgba(10, 22, 40, 0.72)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* نور خیلی ظریف داخل کارت */
+
+.memory-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(150, 190, 230, 0.08);
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+
+/* وقتی موس روی کارت میره */
+
+.memory-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(200, 220, 240, 0.38);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(130, 170, 220, 0.08);
+}
+
+
+/* عنوان کارت */
+
+.memory-card h2 {
+    position: relative;
+
+    transition: transform 0.3s ease;
+}
+
+
+.memory-card:hover h2 {
+    transform: translateX(-4px);
+}
+
+
+/* متن «برای خواندن باز کن» */
+
+.read-more {
+    position: relative;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.memory-card:hover .read-more {
+    opacity: 1;
+
+    transform: translateX(-4px);
+}
+/* =========================
+   انیمیشن کارت پستال
+========================= */
+
+.postcard-overlay {
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+/* کارت قبل از باز شدن */
+
+.postcard {
+    transform:
+        translateY(35px)
+        scale(0.92)
+        rotate(-1deg);
+
+    opacity: 0;
+
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.4s ease;
+}
+
+
+/* کارت هنگام باز شدن */
+
+.postcard-overlay.show .postcard {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(0deg);
+
+    opacity: 1;
+}
+
+
+/* =========================
+   نور پشت کارت
+========================= */
+
+.postcard-overlay::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(150, 190, 230, 0.12);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    animation: postcardGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes postcardGlow {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+}
+
+
+/* =========================
+   ظاهر شدن مهر قلب
+========================= */
+
+.postcard-stamp {
+    opacity: 0;
+
+    transform:
+        rotate(-25deg)
+        scale(0.5);
+
+    transition:
+        opacity 0.5s ease 0.25s,
+        transform 0.5s ease 0.25s;
+}
+
+
+.postcard-overlay.show .postcard-stamp {
+    opacity: 1;
+
+    transform:
+        rotate(-12deg)
+        scale(1);
+}
+/* =========================
+   ستاره‌های چشمک‌زن
+========================= */
+
+.memories-page::before,
+.memories-page::after {
+    content: "✦";
+
+    position: fixed;
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.memories-page::before {
+    top: 18%;
+    left: 12%;
+}
+
+.memories-page::after {
+    top: 32%;
+    right: 10%;
+
+    font-size: 8px;
+
+    animation-delay: 1s;
+}
+
+
+/* چند ستاره برای اطراف صفحه */
+
+.memories-page {
+    --star-color: rgba(255,255,255,0.7);
+}
+
+
+/* درخشش ماه */
+
+.small-moon {
+    position: relative;
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,255,255,0.7))
+        drop-shadow(0 0 25px rgba(160,195,235,0.45));
+}
+
+
+/* انیمیشن چشمک */
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+/* ========================================
+   PAGE 3 — LETTER
+======================================== */
+
+.letter-page {
+    position: relative;
+    z-index: 5;
+
+    width: min(92%, 760px);
+
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ماه بالای نامه */
+
+.letter-moon {
+    font-size: 58px;
+
+    color: #f4f7ff;
+
+    margin-bottom: 28px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.85),
+        0 0 35px rgba(150,190,240,0.45);
+
+    animation: moonFloat 4s ease-in-out infinite;
+}
+
+
+/* ========================================
+   خود نامه
+======================================== */
+
+.letter-card {
+    position: relative;
+
+    width: 100%;
+
+    padding: 65px 65px 70px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 43, 68, 0.72),
+            rgba(7, 17, 31, 0.78)
+        );
+
+    border: 1px solid rgba(220,230,245,0.16);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    overflow: hidden;
+
+    animation: letterAppear 0.9s ease forwards;
+}
+
+
+/* نور خیلی ظریف داخل کارت */
+
+.letter-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -170px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(145,185,230,0.10);
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
+
+/* حاشیه خیلی ظریف */
+
+.letter-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(255,255,255,0.055);
+
+    border-radius: 21px;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   نوشته کوچک بالای عنوان
+======================================== */
+
+.letter-small-title {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    color: #91a8c2;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 18px;
+
+    opacity: 0.85;
+}
+
+
+/* ========================================
+   عنوان
+======================================== */
+
+.letter-card h1 {
+    position: relative;
+    z-index: 2;
+
+    color: #f3f6fb;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+
+    letter-spacing: -0.5px;
+
+    text-shadow:
+        0 0 25px rgba(180,205,235,0.12);
+}
+
+
+/* خط */
+
+.letter-line {
+    position: relative;
+    z-index: 2;
+
+    width: 45px;
+    height: 1px;
+
+    margin: 0 auto 35px;
+
+    background: #91a8c2;
+
+    opacity: 0.55;
+}
+
+
+/* ========================================
+   متن نامه
+======================================== */
+
+.letter-card p {
+    position: relative;
+    z-index: 2;
+
+    color: #cbd6e4;
+
+    font-size: 16px;
+
+    line-height: 2.35;
+
+    text-align: right;
+
+    margin: 0;
+}
+
+
+/* قسمت بولد */
+
+.letter-card strong {
+    color: #eef3fa;
+
+    font-weight: 500;
+}
+
+
+/* جمله آخر */
+
+.letter-card .final-love {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    text-align: center;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 0 18px rgba(180,210,245,0.25);
+}
+
+
+/* ========================================
+   انیمیشن ورود
+======================================== */
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ========================================
+   ستاره‌های صفحه نامه
+======================================== */
+
+.letter-page::before {
+    content: "✦";
+
+    position: fixed;
+
+    top: 18%;
+    left: 12%;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 11px;
+
+    animation: twinkle 2.8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+.letter-page::after {
+    content: "✦";
+
+    position: fixed;
+
+    bottom: 20%;
+    right: 12%;color: rgba(255,255,255,0.5);
+
+    font-size: 8px;
+
+    animation: twinkle 3.2s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   موبایل
+======================================== */
+
+@media (max-width: 600px) {
+
+    .letter-page {
+        width: 94%;
+
+        padding: 55px 8px;
+    }
+
+
+    .letter-moon {
+        font-size: 48px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .letter-card {
+        padding: 50px 27px 55px;
+
+        border-radius: 23px;
+    }
+
+
+    .letter-card::after {
+        inset: 9px;
+
+        border-radius: 17px;
+    }
+
+
+    .letter-card h1 {
+        font-size: 30px;
+    }
+
+
+    .letter-small-title {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .letter-card p {
+        font-size: 15px;
+
+        line-height: 2.15;
+    }
+
+
+    .letter-card .final-love {
+        font-size: 19px;
+    }
+
+}
+/* ستاره‌های صفحه اول */
+.welcome::before,
+.welcome::after {
+    content: "✦";
+    position: fixed;
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.welcome::before {
+    top: 20%;
+    left: 15%;
+    font-size: 10px;
+}
+
+.welcome::after {
+    top: 35%;
+    right: 14%;
+    font-size: 7px;
+    animation-delay: 1.2s;
+}
+.memory-button {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.memory-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 30px rgba(130, 170, 220, 0.22),
+        0 0 20px rgba(180, 210, 240, 0.08);
+}
+/* انیمیشن ورود صفحه اول */
+.welcome {
+    animation: welcomeAppear 1s ease forwards;
+}
+
+@keyframes welcomeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ورود کارت‌های خاطرات */
+.memory-card {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: memoryAppear 0.7s ease forwards;
+}
+
+.memory-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.memory-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.memory-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes memoryAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.letter-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterSectionAppear 0.8s ease forwards;
+    animation-delay: 0.9s;
+}
+
+.letter-button {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.letter-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 30px rgba(140, 180, 225, 0.2),
+        0 0 18px rgba(180, 210, 240, 0.08);
+}
+
+@keyframes letterSectionAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.letter-card p {
+    animation: textAppear 1.2s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
